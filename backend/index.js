@@ -112,10 +112,10 @@ app.get("/product",async(req,res)=>{
 })
  
 /*****payment getWay */
-// console.log(process.env.STRIPE_SECRET_KEY)
+ console.log(process.env.STRIPE_SECRET_KEY)
 
 
-// const stripe  = new Stripe(process.env.STRIPE_SECRET_KEY)
+const stripe  = new Stripe(`${process.env.STRIPE_SECRET_KEY}`)
 
 app.post("/create-checkout-session",async(req,res)=>{
 
@@ -125,7 +125,7 @@ app.post("/create-checkout-session",async(req,res)=>{
           mode : "payment",
           payment_method_types : ['card'],
           billing_address_collection : "auto",
-          shipping_options : [{shipping_rate : "shr_1N0qDnSAq8kJSdzMvlVkJdua"}],
+          shipping_options : [{shipping_rate : "shr_1N3m3sSF91miOUEQMdUtpt1d"}],
 
           line_items : req.body.map((item)=>{
             return{
