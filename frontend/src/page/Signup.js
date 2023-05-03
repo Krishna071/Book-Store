@@ -164,6 +164,14 @@ console.log("debug")
             </span>
           </div>
 
+          <div className="checkbox-wrapper">
+            <label>
+              <input type="checkbox" />
+              <span>{"Biometric Authenentication for Payment Transaction"}</span>
+            </label>
+          </div>
+
+
           <button type = "submit"className="w-full max-w-[150px] m-auto  bg-red-500 hover:bg-red-600 cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
             Sign up
           </button>
