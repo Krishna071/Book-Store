@@ -19,20 +19,21 @@ const Home = () => {
 
   const slideProductRef = useRef();
   const nextProduct = () => {
-    slideProductRef.current.scrollLeft += 200;
+    slideProductRef.current.scrollLeft += 100;
   };
   const preveProduct = () => {
-    slideProductRef.current.scrollLeft -= 200;
+    slideProductRef.current.scrollLeft -= 100;
   };
 
-
-
+ 
 
   return (
+    
     <div className="p-2 md:p-4">
       <div className="md:flex gap-4 py-2">
         <div className="md:w-1/2">
-          
+  
+
           <h2 className="text-xl md:text-7xl font-bold py-3">
              Welcome to {" "}
             <span className="text-blue-600 text-">Paperback Mine</span>
@@ -42,13 +43,13 @@ const Home = () => {
             of book lovers who share a passion for reading and learning. That's why 
             we're committed to curating a diverse selection of books that can speak
             to everyone. Whether you're looking for entertainment or enlightenment,
-            we've got you covered."   
+            we've got you covered. 
           </p>
         </div>
 
       
       </div>
-
+  
       <div className="">
         <div className="flex w-full items-center">
           <h2 className="font-bold text-2xl text-slate-800 mb-4">
