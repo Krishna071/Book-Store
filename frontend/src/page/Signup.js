@@ -16,6 +16,8 @@ function Signup() {
     email: "",
     password: "",
     confirmPassword: "",
+    contact: "",
+    checker: "",
     image : ""
   });
 
@@ -71,7 +73,7 @@ console.log("debug")
         alert(dataRes.message);
         toast(dataRes.message)
         if(dataRes.alert){
-          navigate("/login");
+          navigate("/");
         }
        
       } else {
@@ -128,6 +130,17 @@ console.log("debug")
             onChange={handleOnChange}
           />
 
+          <label htmlFor="contact">Contact Number</label>
+          <input
+            type={"text"}
+            id="contact"
+            name="contact"
+            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
+            value={data.contact}
+            onChange={handleOnChange}
+          />
+
+
           <label htmlFor="password">Password</label>
           <div className="flex px-2 py-1 bg-slate-200 rounded mt-1 mb-2 focus-within:outline focus-within:outline-blue-300">
             <input
@@ -166,7 +179,12 @@ console.log("debug")
 
           <div className="checkbox-wrapper">
             <label>
-              <input type="checkbox" />
+              <input type={"checkbox" }
+              id="checker"
+              name="checker"
+              value={data.checker}
+              onChange={handleOnChange}    
+             />
               <span>{"Biometric Authenentication for Payment Transaction"}</span>
             </label>
           </div>

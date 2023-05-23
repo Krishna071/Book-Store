@@ -22,6 +22,7 @@ export const userSlice = createSlice({
       state.image = action.payload.data.image;
     },
     logoutRedux: (state, action) => {
+      console.log("logout");
       state._id = "";
       state.firstName = "";
       state.lastName = "";

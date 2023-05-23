@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
-const Stripe = require('stripe')
+const Stripe = require('stripe');
+const { startVerification, verifyOTP } = require("./utils/bank-otp");
+var contact=""
 
 const app = express();
 app.use(cors());
@@ -28,6 +30,7 @@ const userSchema = mongoose.Schema({
   },
   password: String,
   confirmPassword: String,
+  contact:String,
   image: String
 });
 
@@ -41,6 +44,8 @@ app.get("/", (req, res) => {
 //sign up
 app.post("/signup", async (req, res) => {
   console.log(req.body);
+  contact = req.body.contact;
+  console.log(contact);
   const { email } = req.body;
 
   userModel.findOne({ email: email }, (err, result) => {
@@ -70,8 +75,10 @@ app.post("/login", (req, res) => {
         lastName: result.lastName,
         email: result.email,
         image: result.image,
+        contact: result.contact, 
       };
       console.log(dataSend);
+      contact= dataSend.contact
       res.send({
         message: "Login is successfully",
         alert: true,
@@ -114,8 +121,6 @@ app.get("/product",async(req,res)=>{
 })
  
 /*****payment getWay */
- console.log(process.env.STRIPE_SECRET_KEY)
-
 
 const stripe  = new Stripe(`${process.env.STRIPE_SECRET_KEY}`)
 
@@ -146,10 +151,8 @@ app.post("/create-checkout-session",async(req,res)=>{
               quantity : item.qty
             }
           }),
-
-          success_url : `${process.env.FRONTEND_URL}/success`,
+          success_url : 'http://localhost:8000/Otp',
           cancel_url : `${process.env.FRONTEND_URL}/cancel`,
-
       }
 
       
@@ -160,6 +163,37 @@ app.post("/create-checkout-session",async(req,res)=>{
      catch (err){
         res.status(err.statusCode || 500).json(err.message)
      }
+
+})
+
+
+// bank otp verification
+
+app.get("/otp",async(req,res)=>{
+ 
+  console.log(req.body)
+  startVerification(contact)
+  .then((success)=>console.log('success'))
+  .catch((er)=>{ 
+    console.log(er)
+    res.send({message: "Enter the valid phone Number", alert : true})
+  })
+  res.redirect("http://localhost:3000/bankOtp")
+})
+
+app.post("/bankOtp",async(req,res)=>{
+  
+  // otp checker for otp verification
+  let otpChecker =""
+  console.log("OTP", contact, req.body.otp)
+
+  verifyOTP(contact, req.body.otp)
+  .then(async ()=>{
+    console.log("succesfull otp verification done");
+    otpChecker = "true"
+    
+  }).catch ((er)=>{console.log(er); console.log("Otp verification failed");otpChecker ="false"} )
+  .finally(() => {console.log(otpChecker), res.send(otpChecker)})
 
 })
 

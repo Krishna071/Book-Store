@@ -25,7 +25,6 @@ const Home = () => {
     slideProductRef.current.scrollLeft -= 100;
   };
 
- 
 
   return (
     
