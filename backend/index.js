@@ -56,7 +56,12 @@ app.post("/signup", async (req, res) => {
     } else {
       const data = userModel(req.body);
       const save = data.save();
-      res.send({ message: "Successfully sign up", alert: true });
+     
+       res.send({
+        message: "Successfully sign up",
+        alert: true,
+        data: data
+       });
     }
   });
 });
@@ -171,7 +176,6 @@ app.post("/create-checkout-session",async(req,res)=>{
 
 app.get("/otp",async(req,res)=>{
  
-  console.log(req.body)
   startVerification(contact)
   .then((success)=>console.log('success'))
   .catch((er)=>{ 

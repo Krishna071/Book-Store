@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import loginSignupImage from "../assest/login-animation.gif";
 import { BiShow, BiHide } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
-import { BsEmojiSmileUpsideDown } from "react-icons/bs";
 import { ImagetoBase64 } from "../utility/ImagetoBase64";
 import { toast } from "react-hot-toast";
+import { signinRedux } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 function Signup() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function Signup() {
     checker: "",
     image : ""
   });
+  const dispatch = useDispatch()
 
   const handleShowPassword = () => {
     setShowPassword((preve) => !preve);
@@ -69,12 +71,15 @@ console.log("debug")
 
           const dataRes = await fetchData.json()
     
-
-        alert(dataRes.message);
-        toast(dataRes.message)
+        
+        console.log(dataRes)
+        toast("Welcome "+ dataRes.data.firstName +"!")
         if(dataRes.alert){
           navigate("/");
         }
+        dispatch(signinRedux(dataRes))
+
+        console.log(dataRes)
        
       } else {
         alert("password and confirm password not equal");
@@ -85,6 +90,7 @@ console.log("debug")
   };
 
   return (
+    <div className="login">
     <div className="p-3 md:p-4">
       <div className="w-full max-w-sm bg-white m-auto flex  flex-col p-4">
         {/* <h1 className='text-center text-2xl font-bold'>Sign up</h1> */}
@@ -185,22 +191,23 @@ console.log("debug")
               value={data.checker}
               onChange={handleOnChange}    
              />
-              <span>{"Biometric Authenentication for Payment Transaction"}</span>
+              <span>{" Biometric Authentication for Payment Transaction"}</span>
             </label>
           </div>
 
 
-          <button type = "submit"className="w-full max-w-[150px] m-auto  bg-red-500 hover:bg-red-600 cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+          <button type = "submit"className="w-full max-w-[150px] m-auto  bg-purple-500 hover:bg-indigo-600 cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
             Sign up
           </button>
         </form>
         <p className="text-left text-sm mt-2">
           Already have account ?{" "}
-          <Link to={"/login"} className="text-red-500 underline">
+          <Link to={"/login"} className="text-purple-500 underline">
             Login
           </Link>
         </p>
       </div>
+    </div>
     </div>
   );
 }

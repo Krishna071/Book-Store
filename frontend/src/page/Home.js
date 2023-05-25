@@ -5,6 +5,7 @@ import HomeCard from "../component/HomeCard";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import FilterProduct from "../component/FilterProduct";
 import AllProduct from "../component/AllProduct";
+import "./home.css"
 
 
 const Home = () => {
@@ -16,6 +17,9 @@ const Home = () => {
   );
   const loadingArray = new Array(4).fill(null);
   const loadingArrayFeature = new Array(10).fill(null);
+  const userData = useSelector((state) => state.user);
+
+  console.log("print", userData.email)
 
   const slideProductRef = useRef();
   const nextProduct = () => {
@@ -27,17 +31,16 @@ const Home = () => {
 
 
   return (
-    
-    <div className="p-2 md:p-4">
+    <div  className="home">
+  
+     <div className="p-2 md:p-4">
       <div className="md:flex gap-4 py-2">
         <div className="md:w-1/2">
-  
-
-          <h2 className="text-xl md:text-7xl font-bold py-3">
+          <h2 className="text-black md:text-7xl font-bold py-3">
              Welcome to {" "}
             <span className="text-blue-600 text-">Paperback Mine</span>
           </h2>
-          <p className="py-3 text-base ">
+          <p className="py-3 text-black font-family: Times New Roman">
             Our book store is more than just a place to buy books; it's a community 
             of book lovers who share a passion for reading and learning. That's why 
             we're committed to curating a diverse selection of books that can speak
@@ -51,7 +54,7 @@ const Home = () => {
   
       <div className="">
         <div className="flex w-full items-center">
-          <h2 className="font-bold text-2xl text-slate-800 mb-4">
+          <h2 className="font-bold text-2xl text-slate-800 mb-4 text-black">
              Recommended Books
           </h2>
           <div className="ml-auto flex gap-4">
@@ -91,8 +94,9 @@ const Home = () => {
               ))}
         </div>
       </div>
-     
-    </div>
+      </div>
+      </div>
+  
   );
 };
 

@@ -15,8 +15,6 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate()  
-  const userData = useSelector(state => state)
-
 
   const dispatch = useDispatch()
 
@@ -53,7 +51,7 @@ const Login = () => {
       const dataRes = await fetchData.json()
       console.log(dataRes)
       
-      toast(dataRes.message)
+      toast("Welcome Back "+ dataRes.data.firstName +"!!")
       dispatch(loginRedux(dataRes))
       
       if(dataRes.alert){
@@ -63,8 +61,7 @@ const Login = () => {
         }, 1000);
       }
      
-
-      console.log(userData)
+      
     }
     else{
         alert("Please Enter required fields")
@@ -72,6 +69,8 @@ const Login = () => {
   }
 
   return (
+    <div className="signin">
+
     <div className="p-3 md:p-4">
     <div className="w-full max-w-sm bg-white m-auto flex  flex-col p-4">
       {/* <h1 className='text-center text-2xl font-bold'>Sign up</h1> */}
@@ -106,17 +105,18 @@ const Login = () => {
           </span>
         </div>
 
-        <button className="w-full max-w-[150px] m-auto  bg-red-500 hover:bg-red-600 cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+        <button className="w-full max-w-[150px] m-auto  bg-purple-500 hover:bg-indigo-600 cursor-pointer  text-white text-xl font-medium text-center py-1 rounded-full mt-4">
           Login
         </button>
       </form>
       <p className="text-left text-sm mt-2">
         Don't  have account ?{" "}
-        <Link to={"/signup"} className="text-red-500 underline">
+        <Link to={"/signup"} className="text-purple-500 underline">
           Sign Up
         </Link>
       </p>
     </div>
+  </div>
   </div>
   )
 }

@@ -39,7 +39,8 @@ const Cart = () => {
           const data = await res.json()
           console.log(data)
 
-          toast("Redirect to payment Gateway...!")
+          toast("Redirect to payment Gateway..!")
+       
           stripePromise.redirectToCheckout({sessionId : data}) 
       }
       else{
@@ -52,7 +53,7 @@ const Cart = () => {
   }
   return (
     <>
-    
+    <div className="cart">
       <div className="p-2 md:p-4">
         <h2 className="text-lg md:text-2xl font-bold text-slate-600">
           Your Cart Items
@@ -106,7 +107,7 @@ const Cart = () => {
         </>
       }
       </div>
-    
+      </div>
     </>
   );
 };

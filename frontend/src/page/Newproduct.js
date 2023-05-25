@@ -80,17 +80,7 @@ const Newproduct = () => {
 
         <label htmlFor='category'>Category</label>
         <select className='bg-slate-200 p-1 my-1' id='category' name='category' onChange={handleOnChange} value={data.category}>
-          <option value={"other"}>select category</option>
-          <option value={"fruits"}>Fruits</option>
-          <option value={"vegetable"}>Vegetable</option>
-          <option value={"icream"}>Icream</option>
-          <option value={"dosa"}>Dosa</option>
-          <option value={"pizza"}>Pizza</option>
-          <option value={"rice"}>rice</option>
-          <option value={"cake"}>Cake</option>
-          <option value={"burger"}>Burger</option>
-          <option value={"panner"}>Panner</option>
-          <option value={"sandwich"}>Sandwich</option>
+          
         </select>
 
         <label htmlFor='image'>Image

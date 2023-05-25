@@ -1,44 +1,48 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assest/logo.png";
+import sign from "../assest/log.png";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { BsCartFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
 import { toast } from "react-hot-toast";
+import { useNavigate} from "react-router-dom";
+
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const userData = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+  const navigate=useNavigate()
   const handleShowMenu = () => {
     setShowMenu((preve) => !preve);
   };
   const handleLogout = () => {
+   
     dispatch(logoutRedux());
     toast("Logout successfully");
+    navigate("/");
   };
 
   const cartItemNumber = useSelector((state)=>state.product.cartItem)
   return (
-    <header className="fixed shadow-md w-full h-16 px-2 md:px-4 z-50 bg-grey">
+    <header className="fixed shadow-md w-full h-16 px-5 md:px-4 z-50 bg-black z-index: 10;">
       {/* desktop */}
 
-      <div className="flex items-center h-full justify-between">
+      <div className="flex items-center h-full justify-between bg:white">
         <Link to={""}>
           <div className="h-20">
-            <img src={logo} className="h-full" />
+            <img src={sign} className="h-full , height:10px" />
           </div>
         </Link>
 
         <div className="flex items-center gap-4 md:gap-7">
-          <nav className="gap-4 md:gap-6 text-base md:text-lg hidden md:flex">
+          <nav className="gap-4 md:gap-6 text-base text-white md:text-lg hidden md:flex">
             <Link to={""}>Home</Link>
           </nav>
           <div className="text-2xl text-slate-600 relative">
             <Link to={"cart"}>
-              <BsCartFill />
+              <BsCartFill color="white" />
               <div className="absolute -top-1 -right-1 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center ">
                 {cartItemNumber.length}
               </div>
@@ -49,7 +53,7 @@ const Header = () => {
               {userData.image ? (
                 <img src={userData.image} className="h-full w-full" />
               ) : (
-                <HiOutlineUserCircle />
+                <HiOutlineUserCircle color="white" />
               )}
             </div>
             {showMenu && (
@@ -63,12 +67,16 @@ const Header = () => {
                   </Link>
                 )}
 
-                {userData.image ? (
+                {userData.firstName ? (
+                   
                   <p
-                    className="cursor-pointer text-white px-2 bg-red-500"
+                    className="whitespace-nowrap cursor-pointer px-2"
                     onClick={handleLogout}
+                   
                   >
+                    
                     Logout ({userData.firstName}){" "}
+                  
                   </p>
                 ) : (
                   <Link

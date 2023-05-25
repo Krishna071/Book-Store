@@ -1,0 +1,52 @@
+.home {
+    background-image: 
+    url(
+    "../../public/images/img.jpg");
+    background-size: "cover";
+    background-repeat:no-repeat; 
+    
+  }
+  
+  .BankOtp {
+    
+    background-image: 
+    url(
+    "../../public/images/bankOtp.jpg");
+    background-size:"cover";
+    background-repeat:no-repeat; 
+    height: 90vh;
+    
+  }
+
+  .login {
+
+    background-image: 
+    url(
+    "../../public/images/login.jpg");
+    background-size:"cover";
+    background-repeat:no-repeat; 
+    height: 115vh;
+    
+  }
+
+  .signin {
+
+    background-image: 
+    url(
+    "../../public/images/login.jpg");
+    background-size:"cover";
+    background-repeat:no-repeat; 
+    height: 90vh;
+  
+  }
+
+  .cart {
+
+    background-image: 
+    url(
+    "../../public/images/cart.jpg");
+    background-size:"cover";
+    background-repeat:no-repeat; 
+    height: 90vh;
+  
+  }

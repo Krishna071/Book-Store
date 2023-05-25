@@ -1,20 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const initialState = {
   productList: [],
   cartItem: [],
+
 };
 
 export const productSlice = createSlice({
+
   name: "product",
   initialState,
   reducers: {
     setDataProduct: (state, action) => {
       state.productList = [...action.payload];
     },
+  
     addCartItem: (state, action) => {
       const check = state.cartItem.some((el) => el._id === action.payload._id);
+
       if (check) {
         toast("Already Item in Cart");
       } else {
