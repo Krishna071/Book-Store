@@ -1,18 +1,27 @@
 # Book-Store
 This is a Web App to sell/buy books
 
-
-<img width="949" alt="Screenshot 2023-05-04 024920" src="https://user-images.githubusercontent.com/63354746/236052267-7991fcda-b233-42e8-9159-4d3bcb45c3ef.png">
-
-<img width="959" alt="Screenshot 2023-05-03 025958" src="https://user-images.githubusercontent.com/63354746/236052835-91c15016-e8eb-48fe-874f-f1e5e97bc5ff.png">
+<img width="948" alt="Screenshot 2023-05-28 171008" src="https://github.com/Krishna071/Book-Store/assets/63354746/6488b8e6-3182-407b-88b5-e1cb3fcda144">
 
 
-<img width="960" alt="Screenshot 2023-05-03 030034" src="https://user-images.githubusercontent.com/63354746/236052876-56a090ab-d9c0-4f44-99c0-05ab437bdf85.png">
-
-<img width="958" alt="Screenshot 2023-05-03 025933" src="https://user-images.githubusercontent.com/63354746/236050475-803981a4-eda7-4e62-bdce-f7306d1cd323.png">
+<img width="945" alt="Screenshot 2023-05-28 170839" src="https://github.com/Krishna071/Book-Store/assets/63354746/861b03ef-65ac-4696-99a1-5bfe990f9039">
 
 
-<img width="958" alt="Screenshot 2023-05-04 025148" src="https://user-images.githubusercontent.com/63354746/236053107-dc995d54-dc32-4ae9-820e-d4b4b9610bd0.png">
+<img width="944" alt="Screenshot 2023-05-28 171058" src="https://github.com/Krishna071/Book-Store/assets/63354746/30a0bf09-929f-4584-b55d-264a661b5ad9">
 
 
-<img width="949" alt="Screenshot 2023-05-04 025020" src="https://user-images.githubusercontent.com/63354746/236053123-5b9f7eeb-4273-4bc6-9fb4-de63927e6e3b.png">
+
+<img width="946" alt="Screenshot 2023-05-28 171249" src="https://github.com/Krishna071/Book-Store/assets/63354746/f5d7eaa9-98e4-4bc6-9792-d4a06e542c7b">
+
+
+
+<img width="945" alt="Screenshot 2023-05-28 171502" src="https://github.com/Krishna071/Book-Store/assets/63354746/72ccb5c3-d949-443d-98fa-73d3ae32d7f7">
+
+
+<img width="948" alt="Screenshot 2023-05-28 171554" src="https://github.com/Krishna071/Book-Store/assets/63354746/9c3d1630-3896-4d0a-8449-6320e8ed6eb7">
+
+
+![WhatsApp Image 2023-05-28 at 17 17 25](https://github.com/Krishna071/Book-Store/assets/63354746/cdfb7490-2ce4-49d3-b75b-7ec2d333125b)
+
+
+
