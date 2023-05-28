@@ -21,6 +21,6 @@ This is a Web App to buy interesting books
 <img width="948" alt="Screenshot 2023-05-28 171554" src="https://github.com/Krishna071/Book-Store/assets/63354746/9c3d1630-3896-4d0a-8449-6320e8ed6eb7">
 
 
-<img width="253" alt="Screenshot 2023-05-28 172634" src="https://github.com/Krishna071/Book-Store/assets/63354746/f114bb72-d1aa-4048-a970-b0deb917157f">
+<img width="900" alt="Screenshot 2023-05-28 172634" src="https://github.com/Krishna071/Book-Store/assets/63354746/f114bb72-d1aa-4048-a970-b0deb917157f">
 
 
