@@ -50,15 +50,21 @@ const Login = () => {
 
       const dataRes = await fetchData.json()
       console.log(dataRes)
-      
-      toast("Welcome Back "+ dataRes.data.firstName +"!!")
-      dispatch(loginRedux(dataRes))
-      
-      if(dataRes.alert){
+    
+      if(dataRes.message === "Invalid email or password!!")
+      {
+        toast("Invalid email or password!!")
+      }
+      else{
+        toast("Welcome Back "+ dataRes.data.firstName +"!!")
         dispatch(loginRedux(dataRes))
-        setTimeout(() => {
-          navigate("/")
-        }, 1000);
+        
+        if(dataRes.alert){
+          dispatch(loginRedux(dataRes))
+          setTimeout(() => {
+            navigate("/")
+          }, 1000);
+        }
       }
      
       
@@ -69,7 +75,7 @@ const Login = () => {
   }
 
   return (
-    <div className="signin">
+    <div className="login">
 
     <div className="p-3 md:p-4">
     <div className="w-full max-w-sm bg-white m-auto flex  flex-col p-4">

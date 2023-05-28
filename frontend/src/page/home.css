@@ -25,8 +25,7 @@
     "../../public/images/login.jpg");
     background-size:"cover";
     background-repeat:no-repeat; 
-    height: 115vh;
-    
+    height: 100vh;  
   }
 
   .signin {
@@ -36,8 +35,7 @@
     "../../public/images/login.jpg");
     background-size:"cover";
     background-repeat:no-repeat; 
-    height: 90vh;
-  
+    height: 120vh;
   }
 
   .cart {
