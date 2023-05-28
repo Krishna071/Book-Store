@@ -21,7 +21,7 @@ This is a Web App to sell/buy books
 <img width="948" alt="Screenshot 2023-05-28 171554" src="https://github.com/Krishna071/Book-Store/assets/63354746/9c3d1630-3896-4d0a-8449-6320e8ed6eb7">
 
 
-![WhatsApp Image 2023-05-28 at 17 17 25](https://github.com/Krishna071/Book-Store/assets/63354746/cdfb7490-2ce4-49d3-b75b-7ec2d333125b)
+<img width="900" alt="Screenshot 2023-05-28 172325" src="https://github.com/Krishna071/Book-Store/assets/63354746/c7c3db8a-4ff5-416f-892f-355d6228fe85">
 
 
 
