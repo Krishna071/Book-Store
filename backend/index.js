@@ -72,7 +72,8 @@ app.post("/signup", async (req, res) => {
 app.post("/login", (req, res) => {
    console.log(req.body);
   const { email } = req.body;
-  userModel.findOne({ email: email }, (err, result) => {
+  userModel.findOne({ email: req.body.email, password: req.body.password }, (err, result) => {
+    console.log(result)
     if (result) {
       const dataSend = {
         _id: result._id,
@@ -91,8 +92,8 @@ app.post("/login", (req, res) => {
       });
     } else {
       res.send({
-        message: "Email is not available, please sign up",
-        alert: false,
+        message: "Invalid email or password!!",
+        alert: true,
       });
     }
   });
