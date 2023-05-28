@@ -31,7 +31,7 @@ const Header = () => {
 
       <div className="flex items-center h-full justify-between bg:white">
         <Link to={""}>
-          <div className="h-20">
+          <div className="h-16">
             <img src={sign} className="h-full , height:10px" />
           </div>
         </Link>
