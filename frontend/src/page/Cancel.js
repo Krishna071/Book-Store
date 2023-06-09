@@ -1,18 +1,40 @@
 import React from 'react'
 import { useSelector } from "react-redux";
+import cancelPage from "../payImages/paymentFailed.png"
 
 
 
 
 const Cancel = () => {
+  console.log("print success")
   const userData = useSelector((state) => state.user);
+  console.log("print", userData.email)
 
-console.log("print", userData.email)
+ const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '50vh', // Adjust the height as needed
+  };
 
+  const imageStyle = {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    borderRadius: '50%',
+  };
+  
   return (
-    <div className='bg-red-200 w-full max-w-md m-auto h-36 flex justify-center items-center font-semibold text-lg'>
-        <p>Payment is Cancel</p>
+  
+   <div  style={{ backgroundColor: '#eeeee4' }}  >
+    <div style={containerStyle} className='image-container'>
+        <img src={cancelPage} alt="Payment Failed!!" style={imageStyle} />
+        {/* <a href="/" className="button">Back to Home Page</a> */}
     </div>
+
+    <div className="homebtn"><a href="/" className="button">Back to Home Page</a></div>
+    <div className='button-container'></div>
+
+    </div> 
   )
 }
 
