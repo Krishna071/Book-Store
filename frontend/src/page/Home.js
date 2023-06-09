@@ -5,12 +5,15 @@ import HomeCard from "../component/HomeCard";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import FilterProduct from "../component/FilterProduct";
 import AllProduct from "../component/AllProduct";
+import { useDispatch } from "react-redux";
+import { loginRedux } from "../redux/userSlice";
 import "./home.css"
 
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
   const homeProductCartList = productData.slice(1, 5);
+  
   const homeProductCartListVegetables = productData.filter(
     (el) => 
     []

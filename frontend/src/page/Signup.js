@@ -46,6 +46,7 @@ function Signup() {
     var { name, value } = e.target;
     value = e.target.checked
     console.log(name,value)
+    console.log("checker: ", e.target.checked)
     setData((preve) => {
       return {
         ...preve,

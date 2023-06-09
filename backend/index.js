@@ -94,7 +94,7 @@ app.post("/login", (req, res) => {
         contact: result.contact, 
       };
       console.log(dataSend);
-      contact= dataSend.cont
+      contact= dataSend.contact
       checker= dataSend.checker
       
       res.send({
