@@ -107,6 +107,7 @@ console.log("debug")
           navigate("/");
         }
         dispatch(signinRedux(dataRes))
+        localStorage.setItem("data",  JSON.stringify(dataRes));
 
         console.log(dataRes)
        

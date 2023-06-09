@@ -58,6 +58,7 @@ const Login = () => {
       else{
         toast("Welcome Back "+ dataRes.data.firstName +"!!")
         dispatch(loginRedux(dataRes))
+        localStorage.setItem("data",  JSON.stringify(dataRes));
         
         if(dataRes.alert){
           dispatch(loginRedux(dataRes))

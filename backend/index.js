@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require('cookie-parser'); 
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
@@ -7,13 +8,16 @@ const { startVerification, verifyOTP } = require("./utils/bank-otp");
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
+const { urlencoded } = require("body-parser");
 var contact=""
 var checker=""
+var email=""
 
 const app = express();
-app.use(cors());
+app.use(cors({origin: '*'}));
 app.use(express.json({ limit: "10mb" }));
-
+app.use(cookieParser());
+app.use(express.urlencoded({extended:false}))
 const PORT = process.env.PORT || 8080;
 
 //mongodb connection.
@@ -90,8 +94,9 @@ app.post("/login", (req, res) => {
         contact: result.contact, 
       };
       console.log(dataSend);
-      contact= dataSend.contact
+      contact= dataSend.cont
       checker= dataSend.checker
+      
       res.send({
         message: "Login is successfully",
         alert: true,
@@ -182,6 +187,7 @@ app.post("/create-checkout-session",async(req,res)=>{
 // either biometric or bank otp verification
 app.get("/verificationMode", async(req,res)=>{
      console.log(checker)
+
      if(checker == true){
         console.log("Checker true")
         res.redirect("http://localhost:8000/biometric")

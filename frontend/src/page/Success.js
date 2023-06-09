@@ -1,10 +1,15 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 import successPage from "../payImages/paymentimg.png"
+import { useDispatch } from "react-redux";
+import { loginRedux } from "../redux/userSlice";
 
 const Success = () => {
 
+  const dispatch = useDispatch();
   console.log("print success")
+  const dataRes = localStorage.getItem('data');
+  dispatch(loginRedux(JSON.parse(dataRes)));
   const userData = useSelector((state) => state.user);
   console.log("print", userData.email)
 
