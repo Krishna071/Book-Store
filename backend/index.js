@@ -4,7 +4,11 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const Stripe = require('stripe');
 const { startVerification, verifyOTP } = require("./utils/bank-otp");
+const fs = require('fs');
+const path = require('path');
+const http = require('http');
 var contact=""
+var checker=""
 
 const app = express();
 app.use(cors());
@@ -31,6 +35,7 @@ const userSchema = mongoose.Schema({
   password: String,
   confirmPassword: String,
   contact:String,
+  checker: String,
   image: String
 });
 
@@ -45,6 +50,7 @@ app.get("/", (req, res) => {
 app.post("/signup", async (req, res) => {
   console.log(req.body);
   contact = req.body.contact;
+  checker = req.body.checker
   console.log(contact);
   const { email } = req.body;
 
@@ -85,6 +91,7 @@ app.post("/login", (req, res) => {
       };
       console.log(dataSend);
       contact= dataSend.contact
+      checker= dataSend.checker
       res.send({
         message: "Login is successfully",
         alert: true,
@@ -157,7 +164,7 @@ app.post("/create-checkout-session",async(req,res)=>{
               quantity : item.qty
             }
           }),
-          success_url : 'http://localhost:8000/Otp',
+          success_url : 'http://localhost:8000/VerificationMode',
           cancel_url : `${process.env.FRONTEND_URL}/cancel`,
       }
 
@@ -172,6 +179,26 @@ app.post("/create-checkout-session",async(req,res)=>{
 
 })
 
+// either biometric or bank otp verification
+app.get("/verificationMode", async(req,res)=>{
+     console.log(checker)
+     if(checker == true){
+        console.log("Checker true")
+        res.redirect("http://localhost:8000/biometric")
+     }else{
+       console.log("Checker false")
+        res.redirect("http://localhost:8000/otp")
+     }
+ 
+})
+
+//biometric identification
+app.get("/biometric", async(req,res)=>{
+
+    const filePath = path.join(__dirname, './biometric.html');
+    res.sendFile(filePath);
+
+})
 
 // bank otp verification
 

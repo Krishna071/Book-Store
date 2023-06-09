@@ -5,6 +5,7 @@ const initialState = {
   firstName: "",
   image: "",
   lastName: "",
+  checker: "",
   _id: "",
 };
 
@@ -20,6 +21,7 @@ export const userSlice = createSlice({
       state.lastName = action.payload.data.lastName;
       state.email = action.payload.data.email;
       state.image = action.payload.data.image;
+      state.checker = action.payload.data.checker;
     },
     signinRedux: (state, action) => {
       console.log(action.payload.data);
@@ -38,6 +40,7 @@ export const userSlice = createSlice({
       state.lastName = "";
       state.email = "";
       state.image = "";
+      state.checker = "";
     },
   },
 });

@@ -30,8 +30,10 @@ function Signup() {
     setShowConfirmPassword((preve) => !preve);
   };
 
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value)
     setData((preve) => {
       return {
         ...preve,
@@ -39,6 +41,20 @@ function Signup() {
       };
     });
   };
+
+  const handleOnChecker = (e) => {
+    var { name, value } = e.target;
+    value = e.target.checked
+    console.log(name,value)
+    setData((preve) => {
+      return {
+        ...preve,
+        [name]: value,
+      };
+    });
+  };
+
+  
 
   const handleUploadProfileImage = async(e)=>{
       const data = await ImagetoBase64(e.target.files[0])
@@ -52,12 +68,25 @@ function Signup() {
       })
 
   }
+
+
+  // function handleCheckboxChange(event) {
+  //   if (event.target.checked) {
+  //     alert("Checkbox is checked");
+  //     // Perform actions when the checkbox is checked
+  //   } else {
+  //     alert("Checkbox is unchecked");
+  //     // Perform actions when the checkbox is unchecked
+  //   }
+  // }
+
+
 console.log(process.env.REACT_APP_SERVER_DOMIN)
 console.log("debug")
   const handleSubmit = async(e) => {
     e.preventDefault();
-    const { firstName, email, password, confirmPassword } = data;
-    if (firstName && email && password && confirmPassword) {
+    const { firstName, email, password, confirmPassword,  contact } = data;
+    if (firstName && email && password && confirmPassword  && contact) {
       if (password === confirmPassword) {
           
         alert("suceessful")
@@ -184,13 +213,21 @@ console.log("debug")
             </span>
           </div>
 
+
+{/* 
+        <div className="flex px-2 py-1 bg-slate-200 rounded mt-1 mb-2  focus-within:outline focus-within:outline-blue-300">
+            <input type="checkbox" id="myCheckbox" onchange="handleCheckboxChange(event)"
+            />
+            <label for="myCheckbox">Biometric Authentication for Payment Transaction</label>
+        </div> */}
+
           <div className="checkbox-wrapper">
             <label>
               <input type={"checkbox" }
               id="checker"
               name="checker"
               value={data.checker}
-              onChange={handleOnChange}    
+              onChange={handleOnChecker}    
              />
               <span>{" Biometric Authentication for Payment Transaction"}</span>
             </label>

@@ -55,14 +55,14 @@ const Cart = () => {
     <>
     <div className="cart">
       <div className="p-2 md:p-4">
-        <h2 className="text-lg md:text-2xl font-bold text-slate-600">
+        <h2 className="text-lg md:text-2xl font-bold text-slate-600 text-black">
           Your Cart Items
         </h2>
 
         {productCartItem[0] ?
         <div className="my-4 flex gap-3">
           {/* display cart items  */}
-          <div className="w-full max-w-3xl ">
+          <div className="w-full max-w-3xl text-black">
             {productCartItem.map((el) => {
               return (
                 <CartProduct

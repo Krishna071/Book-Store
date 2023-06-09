@@ -41,7 +41,7 @@ const Home = () => {
             <span className="text-blue-600 text-">Paperback Mine</span>
           </h2>
           <p className="py-3 text-black font-family: Times New Roman">
-            Our book store is more than just a place to buy books; it's a community 
+            Our book store is more than just a place to buy books. It's a community 
             of book lovers who share a passion for reading and learning. That's why 
             we're committed to curating a diverse selection of books that can speak
             to everyone. Whether you're looking for entertainment or enlightenment,
