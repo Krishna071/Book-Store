@@ -1,26 +1,37 @@
 # Book-Store
 This is a Web App to buy interesting books
+![HomePage](https://github.com/Krishna071/Book-Store/assets/63354746/41a46df5-2614-49f6-add9-f456b9412e93)
 
-<img width="948" alt="Screenshot 2023-05-28 171008" src="https://github.com/Krishna071/Book-Store/assets/63354746/6488b8e6-3182-407b-88b5-e1cb3fcda144">
-
-
-<img width="945" alt="Screenshot 2023-05-28 170839" src="https://github.com/Krishna071/Book-Store/assets/63354746/861b03ef-65ac-4696-99a1-5bfe990f9039">
+![sign up page](https://github.com/Krishna071/Book-Store/assets/63354746/32360aac-f046-4e94-a5c8-6c74ec8a7219)
 
 
-<img width="944" alt="Screenshot 2023-05-28 171058" src="https://github.com/Krishna071/Book-Store/assets/63354746/30a0bf09-929f-4584-b55d-264a661b5ad9">
+![login page](https://github.com/Krishna071/Book-Store/assets/63354746/0f1fc42c-6a91-44db-a885-2003903519d2)
 
 
-
-<img width="946" alt="Screenshot 2023-05-28 171249" src="https://github.com/Krishna071/Book-Store/assets/63354746/f5d7eaa9-98e4-4bc6-9792-d4a06e542c7b">
-
+<img width="947" alt="BookPage" src="https://github.com/Krishna071/Book-Store/assets/63354746/61c20335-b867-45ac-b73c-6eeec351d52f">
 
 
-<img width="945" alt="Screenshot 2023-05-28 171502" src="https://github.com/Krishna071/Book-Store/assets/63354746/72ccb5c3-d949-443d-98fa-73d3ae32d7f7">
+![cart page](https://github.com/Krishna071/Book-Store/assets/63354746/41ea7838-2949-4869-932b-1942eda7f242)
 
 
-<img width="948" alt="Screenshot 2023-05-28 171554" src="https://github.com/Krishna071/Book-Store/assets/63354746/9c3d1630-3896-4d0a-8449-6320e8ed6eb7">
+![payment gatway page](https://github.com/Krishna071/Book-Store/assets/63354746/e9a80317-3e94-40cb-b804-4bfb5e8cb7ff)
 
 
-<img width="900" alt="Screenshot 2023-05-28 172634" src="https://github.com/Krishna071/Book-Store/assets/63354746/f114bb72-d1aa-4048-a970-b0deb917157f">
+![Enter otp page](https://github.com/Krishna071/Book-Store/assets/63354746/cc25e998-4def-45bf-a400-3a0ad2ab515c)
 
 
+![fingerprintWindowCheck](https://github.com/Krishna071/Book-Store/assets/63354746/092ee156-3619-4be6-a734-34f712ce97f0)
+
+
+![PaymentFailed](https://github.com/Krishna071/Book-Store/assets/63354746/9461933d-0ac5-45fc-aeb4-0900559a041a)
+
+
+![Uploading PaymentSuccess.png…]()
+
+
+**Steps**
+1. Clone the repo
+2. Open separate terminal for backend and frontend folder
+3. Install all req dependencies using cmd : npm install
+4. Set you environment file for secret keys
+5. Run your project on localhost
