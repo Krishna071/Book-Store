@@ -9,9 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const { urlencoded } = require("body-parser");
-var contact=""
-var checker=""
-var email=""
+
 
 const app = express();
 app.use(cors({origin: '*'}));
@@ -27,8 +25,7 @@ mongoose
   .then(() => console.log("Connect to Databse"))
   .catch((err) => console.log(err));
 
-//schema for username: fingerprint optional
-// fingerprint -> image to base64 -> string format
+//schema for user
 const userSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
@@ -50,6 +47,8 @@ app.get("/", (req, res) => {
   res.send("Server is running at port 8000");
 });
 
+// initialize the var for contact number and biometric checker
+var contact="", checker="";
 //sign up
 app.post("/signup", async (req, res) => {
   console.log(req.body);
@@ -188,7 +187,7 @@ app.post("/create-checkout-session",async(req,res)=>{
 app.get("/verificationMode", async(req,res)=>{
      console.log(checker)
 
-     if(checker == true){
+     if(checker == true || checker == "true"){
         console.log("Checker true")
         res.redirect("http://localhost:8000/biometric")
      }else{
