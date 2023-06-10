@@ -190,32 +190,27 @@ app.get("/biometric", async(req,res)=>{
 })
 
 // bank otp verification
-
+// send otp to user contact number
 app.get("/otp",async(req,res)=>{
- 
   startVerification(contact)
   .then((success)=>console.log('success'))
   .catch((er)=>{ 
     console.log(er)
     res.send({message: "Enter the valid phone Number", alert : true})
   })
-  res.redirect("http://localhost:3000/bankOtp")
+  res.redirect(`${process.env.FRONTEND_URL}/bankOtp`)
 })
 
+ // otp verification
 app.post("/bankOtp",async(req,res)=>{
-  
-  // otp checker for otp verification
   let otpChecker =""
   console.log("OTP", contact, req.body.otp)
-
   verifyOTP(contact, req.body.otp)
   .then(async ()=>{
     console.log("succesfull otp verification done");
     otpChecker = "true"
-    
   }).catch ((er)=>{console.log(er); console.log("Otp verification failed");otpChecker ="false"} )
   .finally(() => {console.log(otpChecker), res.send(otpChecker)})
-
 })
 
 
