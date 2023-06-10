@@ -20,15 +20,8 @@
         });
         function refreshState() {
             if (auth.isAuthenticated()) {
-                const accessTokenJwt = auth.getDecodedAccessToken();
-                //document.querySelector('#result').textContent = JSON.stringify(accessTokenJwt, undefined, 2);
-
-                //const idTokenJwt = auth.getDecodedIDToken();
-                //document.querySelector('#result2').textContent = JSON.stringify(idTokenJwt, undefined, 2);
-            } else {
-                // Hide the button                
-                
-            }
+                const accessTokenJwt = auth.getDecodedAccessToken(); 
+            } 
         }
         refreshState();
         auth.on("closed", () => {
