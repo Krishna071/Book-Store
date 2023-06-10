@@ -130,8 +130,7 @@ app.get("/product",async(req,res)=>{
   res.send(JSON.stringify(data))
 })
  
-//payment getWay integration
-
+   //payment getWay integration
     const stripe  = new Stripe(`${process.env.STRIPE_SECRET_KEY}`)
     app.post("/create-checkout-session",async(req,res)=>{
     try{
