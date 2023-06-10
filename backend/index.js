@@ -130,27 +130,23 @@ app.get("/product",async(req,res)=>{
   res.send(JSON.stringify(data))
 })
  
-/*****payment getWay */
+//payment getWay integration
 
-const stripe  = new Stripe(`${process.env.STRIPE_SECRET_KEY}`)
-
-app.post("/create-checkout-session",async(req,res)=>{
-
-     try{
+    const stripe  = new Stripe(`${process.env.STRIPE_SECRET_KEY}`)
+    app.post("/create-checkout-session",async(req,res)=>{
+    try{
       const params = {
           submit_type : 'pay',
           mode : "payment",
           payment_method_types : ['card'],
           billing_address_collection : "auto",
           shipping_options : [{shipping_rate : "shr_1N3m3sSF91miOUEQMdUtpt1d"}],
-
           line_items : req.body.map((item)=>{
             return{
               price_data : {
                 currency : "inr",
                 product_data : {
                   name : item.name,
-                  // images : [item.image]
                 },
                 unit_amount : item.price * 100,
               },
@@ -161,19 +157,15 @@ app.post("/create-checkout-session",async(req,res)=>{
               quantity : item.qty
             }
           }),
-          success_url : 'http://localhost:8000/VerificationMode',
+          success_url : `${process.env.BACKEND_URL}/VerificationMode`,
           cancel_url : `${process.env.FRONTEND_URL}/cancel`,
-      }
-
-      
+    }
       const session = await stripe.checkout.sessions.create(params)
-      // console.log(session)
       res.status(200).json(session.id)
      }
      catch (err){
         res.status(err.statusCode || 500).json(err.message)
-     }
-
+    }
 })
 
 // either biometric or bank otp verification
