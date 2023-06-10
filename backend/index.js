@@ -167,16 +167,16 @@ app.get("/product",async(req,res)=>{
     }
 })
 
-// either biometric or bank otp verification
+// biometric auth or bank otp verification after payment gateway
 app.get("/verificationMode", async(req,res)=>{
      console.log(checker)
 
      if(checker == true || checker == "true"){
-        console.log("Checker true")
-        res.redirect("http://localhost:8000/biometric")
+        
+        res.redirect(`${process.env.BACKEND_URL}/biometric`)
      }else{
-       console.log("Checker false")
-        res.redirect("http://localhost:8000/otp")
+       
+        res.redirect(`${process.env.BACKEND_URL}/otp`)
      }
  
 })
