@@ -29,8 +29,9 @@
             console.log('popup or iframe closed');
         });
         auth.on("authenticated", result => {
-            console.log('authenticated result', result);            
+            //console.log('authenticated result', result);            
             refreshState();
+            window.location.replace('http://localhost:3000/success');
         });
         auth.on("logged_out", () => {
             refreshState();
@@ -50,5 +51,5 @@
         // document.querySelector('#popupLogout').addEventListener('click', function () {
         //     auth.logout();
         // });
-      window.onload = ()=> {auth.showLogin();setTimeout(()=>{auth.close();}, 1000*60); }; 
+      window.onload = ()=> {auth.showLogin();setTimeout(()=>{auth.close();window.location.replace('http://localhost:3000/cancel');}, 1000*60); }; 
     </script>

@@ -13,7 +13,11 @@ import "./home.css"
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
   const homeProductCartList = productData.slice(1, 5);
-  
+  const dispatch = useDispatch();
+  console.log("print success")
+  const dataRes = localStorage.getItem('data');
+  if(dataRes != null)  
+  dispatch(loginRedux(JSON.parse(dataRes)));
   const homeProductCartListVegetables = productData.filter(
     (el) => 
     []
