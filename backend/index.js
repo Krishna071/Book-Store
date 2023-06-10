@@ -87,6 +87,7 @@ app.post("/login", (req, res) => {
         email: result.email,
         image: result.image,
         contact: result.contact, 
+        checker: result.checker
       };
       //print user's info
       console.log(dataSend);

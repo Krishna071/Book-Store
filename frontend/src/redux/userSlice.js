@@ -6,6 +6,7 @@ const initialState = {
   image: "",
   lastName: "",
   checker: "",
+  contact: "",
   _id: "",
 };
 
@@ -22,6 +23,7 @@ export const userSlice = createSlice({
       state.email = action.payload.data.email;
       state.image = action.payload.data.image;
       state.checker = action.payload.data.checker;
+      state.contact = action.payload.data.checker;
     },
     signinRedux: (state, action) => {
       console.log(action.payload.data);
@@ -32,6 +34,7 @@ export const userSlice = createSlice({
       state.image = action.payload.data.image;
       state.contact = action.payload.data.contact;
       state.checker = action.payload.data.checker;
+      state.contact = action.payload.data.contact;
     },
     logoutRedux: (state, action) => {
       console.log("logout");
@@ -41,6 +44,7 @@ export const userSlice = createSlice({
       state.email = "";
       state.image = "";
       state.checker = "";
+      state.contact = "";
     },
   },
 });
