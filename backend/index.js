@@ -77,10 +77,9 @@ app.post("/signup", async (req, res) => {
 
 
 
-//api login
+//user login 
 app.post("/login", (req, res) => {
-   console.log(req.body);
-  const { email } = req.body;
+  //check for email and password in database
   userModel.findOne({ email: req.body.email, password: req.body.password }, (err, result) => {
     console.log(result)
     if (result) {
@@ -92,19 +91,16 @@ app.post("/login", (req, res) => {
         image: result.image,
         contact: result.contact, 
       };
+      //print user's info
       console.log(dataSend);
       contact= dataSend.contact
-      checker= dataSend.checker
-      
+      checker= dataSend.checker 
       res.send({
-        message: "Login is successfully",
-        alert: true,
-        data: dataSend,
+        message: "Login is successfully", alert: true, data: dataSend
       });
     } else {
       res.send({
-        message: "Invalid email or password!!",
-        alert: true,
+        message: "Invalid email or password!!", alert: true
       });
     }
   });
