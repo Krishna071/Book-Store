@@ -20,10 +20,11 @@ This is a Web App to buy interesting books
 ![Enter otp page](https://github.com/Krishna071/Book-Store/assets/63354746/cc25e998-4def-45bf-a400-3a0ad2ab515c)
 
 
+![PaymentFailed](https://github.com/Krishna071/Book-Store/assets/63354746/9461933d-0ac5-45fc-aeb4-0900559a041a)
+
+
 ![fingerprintWindowCheck](https://github.com/Krishna071/Book-Store/assets/63354746/092ee156-3619-4be6-a734-34f712ce97f0)
 
-
-![PaymentFailed](https://github.com/Krishna071/Book-Store/assets/63354746/9461933d-0ac5-45fc-aeb4-0900559a041a)
 
 
 
