@@ -61,7 +61,9 @@ app.post("/signup", async (req, res) => {
     console.log(err);
     if (result) {
       // email should be unique during signup
-      res.send({ message: "Email id is already register", alert: false });
+      console.log("Email id is already register")
+      const data = "null"
+      res.send({ message: "Email id is already register", alert: true, data: data });
     } else {
       const data = userModel(req.body);
       const save = data.save(); 
