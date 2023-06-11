@@ -45,7 +45,7 @@ const Home = () => {
         <div className="md:w-1/2">
           <h2 className="text-black md:text-7xl font-bold py-3">
              Welcome to {" "}
-            <span className="text-blue-600 text-">Paperback Mine</span>
+            <span className="text-blue-600 text-">BookOff</span>
           </h2>
           <p className="py-3 text-black font-family: Times New Roman">
             Our book store is more than just a place to buy books. It's a community 

@@ -51,9 +51,9 @@ const Login = () => {
       const dataRes = await fetchData.json()
       console.log(dataRes)
     
-      if(dataRes.message === "Invalid email or password!!")
+      if(dataRes.message === "Invalid email or password!!" || dataRes.message === "Sorry, your password was incorrect" )
       {
-        toast("Invalid email or password!!")
+        toast(dataRes.message)
       }
       else{
         toast("Welcome Back "+ dataRes.data.firstName +"!!")

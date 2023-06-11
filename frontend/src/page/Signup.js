@@ -89,8 +89,7 @@ console.log("debug")
     const { firstName, email, password, confirmPassword,  contact } = data;
     if (firstName && email && password && confirmPassword  && contact) {
       if (password === confirmPassword) {
-          
-        alert("suceessful")
+        
           const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`,{
             method : "POST",
             headers : {
@@ -103,6 +102,10 @@ console.log("debug")
     
         
         console.log(dataRes)
+        if(dataRes.message === "Email id is already register"){
+        toast("Email id is already registered")
+        }
+        else{
         toast("Welcome "+ dataRes.data.firstName +"!")
         if(dataRes.alert){
           navigate("/");
@@ -111,9 +114,11 @@ console.log("debug")
         localStorage.setItem("data",  JSON.stringify(dataRes));
 
         console.log(dataRes)
+      }
        
       } else {
-        alert("password and confirm password not equal");
+
+        toast("password and confirm password not equal")
       }
     } else {
       alert("Please Enter required fields");

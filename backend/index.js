@@ -42,6 +42,11 @@ const userSchema = mongoose.Schema({
 
 const userModel = mongoose.model("user", userSchema);
 
+// password hashing
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const yourPassword = "someRandomPasswordHere";
+
 //api
 app.get("/", (req, res) => {
   res.send("Server is running at port 8000");
@@ -65,11 +70,20 @@ app.post("/signup", async (req, res) => {
       const data = "null"
       res.send({ message: "Email id is already register", alert: true, data: data });
     } else {
+      console.log(req.body.password)
+      bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+        // Now we can store the password hash in db.
+        req.body.password = hash
+        console.log(hash)
+        req.body.confirmPassword = hash
       const data = userModel(req.body);
-      const save = data.save(); 
+       data.save(); 
        res.send({
         message: "Successfully sign up", alert: true, data: data
        });
+       
+      });
+      
     }
   });
 });
@@ -79,7 +93,8 @@ app.post("/signup", async (req, res) => {
 //user login 
 app.post("/login", (req, res) => {
   //check for email and password in database
-  userModel.findOne({ email: req.body.email, password: req.body.password }, (err, result) => {
+  
+  userModel.findOne({ email: req.body.email }, (err, result) => {
     console.log(result)
     if (result) {
       const dataSend = {
@@ -89,14 +104,30 @@ app.post("/login", (req, res) => {
         email: result.email,
         image: result.image,
         contact: result.contact, 
-        checker: result.checker
+        checker: result.checker,
+        password: result.password
       };
       //print user's info
-      console.log(dataSend);
-      contact= dataSend.contact
-      checker= dataSend.checker 
-      res.send({
-        message: "Login is successfully", alert: true, data: dataSend
+      // console.log("og password ", req.body.password)
+      // console.log("db password ", dataSend.password)
+      
+      bcrypt.compare(req.body.password, dataSend.password, (err, result) => {
+        if (err) {
+          // Handle error
+          console.log(err)
+        } else if (result === true) {
+          // Passwords match
+          console.log('Passwords match!');
+          res.send({
+            message: "Login is successfully", alert: true, data: dataSend
+          });
+        } else {
+          // Passwords don't match
+          console.log('Passwords do not match!');
+          res.send({
+            message: "Sorry, your password was incorrect", alert: true, data: dataSend
+          });
+        }
       });
     } else {
       res.send({
